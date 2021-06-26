@@ -1,0 +1,4 @@
+[{<<"loginWindow">>,
+  {git,"https://github.com/Taba92/loginWindow",
+       {ref,"7ceb21678f0dfb80e6a917779d20bd202aa0d168"}},
+  0}].

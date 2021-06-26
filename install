@@ -5,13 +5,14 @@
 -define(DEFAULTLOGINPWD, "passwd1111111111").
 -define(CREDENTIALSUFFIX, "Credential").
 -define(BACKUPSUFFIX, "Dirs").
+-define(GITKEEP, ".gitkeep").
 
 main(_)->
     %%empty the directories of users credentials and users storages
 	{ok,Credentials} = file:list_dir(?CREDENTIALSPATH),
     {ok,Passwords} = file:list_dir(?BACKUPPATH),
-    [file:delete(?CREDENTIALSPATH ++ Credential)|| Credential <- Credentials],
-    [file:delete(?BACKUPPATH ++ Password) || Password <-Passwords],
+    [file:delete(?CREDENTIALSPATH ++ Credential)|| Credential <- Credentials,is_not_gitkeep_file(Credential)],
+    [file:delete(?BACKUPPATH ++ Password) || Password <-Passwords,is_not_gitkeep_file(Password)],
     %% create default fils
     DefaultUserCredential = ?CREDENTIALSPATH ++ ?DEFAULTUSER ++ ?CREDENTIALSUFFIX,
     DefaultUserPasswords = ?BACKUPPATH ++ ?DEFAULTUSER ++ ?BACKUPSUFFIX,
@@ -23,3 +24,6 @@ hashing(String)->
 	crypto:start(),
 	<<Hash:256/big-unsigned-integer>> = crypto:hash(sha256,String),
 	integer_to_list(Hash, 16).
+
+is_not_gitkeep_file(FileName)->
+    FileName /= ?GITKEEP.

@@ -32,4 +32,5 @@ Inside the root folder, foreach directory of backup in the storage, there is a s
 
 FUTURE DEVELOPMENTS: 
     1) The first external storage medium found will not be used, but you can choose it before the backup.
-    2) Translate the GUI in English. 
+    2) Translate the GUI in English.
+    3) Support for windows OS. 

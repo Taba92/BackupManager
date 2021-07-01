@@ -9,6 +9,8 @@ Build
 
 For the login it is used the loginWindow application : https://github.com/Taba92/loginWindow
 
+LEGEND: For /sep/ i mean * 
+
 CONFIGURATION:
     Launch the script **install**, that will create a default user *root* with password *passwd1111111111*.
     It also creates the default storage for the *root* user.
@@ -22,7 +24,7 @@ USAGE BUTTONS:
     START BACKUP: search for the first hard disk and create a backup for each directory in the directories storage.
                    
 The **root folder** of the backup have the below format:
-    Year*Month*Day*Hour*Minute*Second recovered at the time of the backup.
+    Year/sep/Month/sep/Day/sep/Hour/sep/Minute/sep/Second recovered at the time of the backup.
 
 Inside the root folder, foreach directory of backup in the storage, there is a sub-folder:
     1) The file *metadata.meta* that contain the source directory

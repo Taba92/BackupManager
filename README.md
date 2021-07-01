@@ -29,4 +29,5 @@ Inside the root folder, foreach directory of backup in the storage, there is a s
     2) The *directory tree folder* that contain the physical directory tree backupped
 
 FUTURE DEVELOPMENTS: 
-    1) The first external storage medium found will not be used, but you can choose it before the backup. 
+    1) The first external storage medium found will not be used, but you can choose it before the backup.
+    2) Translate the GUI in English. 

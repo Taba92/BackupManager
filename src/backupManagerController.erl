@@ -7,6 +7,7 @@ init()->gen_server:start_link({local,backupManagerController},?MODULE,[],[]).
 
 init([])->
     wx:new(),
+	process_flag(trap_exit,true),
     {ok,#state{}}.
 
 handle_info({wx,0,_,_,_},State)->

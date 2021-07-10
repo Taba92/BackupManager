@@ -39,8 +39,7 @@ handle_info({wx,9,BtnBackup,UserData,_},State)->
 		HwDir->
 			[wxButton:disable(Btn)||Btn<-[BtnBackup]++UserData],
 			Workers=backupManagerService:startBackup(Dets,HwDir),
-			io:fwrite("Workers~p~n",[Workers]),
-			[receive {'EXIT',_,_}->io:fwrite("FINITO~n") end||_<-Workers],
+			[receive {'EXIT',_,_}->ok end||_<-Workers],
 			showMsg("BACKUP TERMINATO : "++HwDir),
 			[wxButton:enable(Btn)||Btn<-[BtnBackup]++UserData]
 		end,

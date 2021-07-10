@@ -38,11 +38,15 @@ handle_info({wx,9,BtnBackup,UserData,_},State)->
 		HwDir->
 			[wxButton:disable(Btn)||Btn<-[BtnBackup]++UserData],
 			Workers=backupManagerService:startBackup(Dets,HwDir),
-			[receive {'EXIT',_,_}->ok end||_<-Workers],
+			[rec()||_<-Workers],
 			showMsg("BACKUP TERMINATO : "++HwDir),
 			[wxButton:enable(Btn)||Btn<-[BtnBackup]++UserData]
 		end,
 	{noreply,State}.
+
+rec()->
+	receive {'EXIT',_,_}->ok end,
+	io:fwrite("RECEIVED~n").
 
 handle_call({onloginok,Name,_,_},_,State)->
     Database = backupManagerService:open_database(Name),

@@ -75,7 +75,8 @@ backup(Src,Dst)->
 			file:write_file(Root++"/metadata.meta",ParentDir),
 			copy(Src,Root);
 		false->ok
-	end.
+	end,
+	io:fwrite("FINE: ~p~n",[Src]).
 
 copy(Src,Dst)->
 	case filelib:is_dir(Src) of
